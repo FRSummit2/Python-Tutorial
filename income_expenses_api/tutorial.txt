@@ -56,9 +56,14 @@
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
+-> visit https://www.google.com/settings/security/lesssecureapps
+   and turn on to less secure google account to get the mail
+
+   for error: https://stackoverflow.com/questions/26852128/smtpauthenticationerror-when-sending-mail-using-gmail-and-python
+
 -> update authentication > views.py
 -> create authentication > utils.py
 
 
-
+>> pip install -U drf-yasg
 
