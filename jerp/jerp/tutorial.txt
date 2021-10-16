@@ -1,0 +1,4 @@
+# Connect Oracle DB
+>> pip install cx_oracle
+>> python -m pip install cx_Oracle --upgrade --user
+

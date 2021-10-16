@@ -1,0 +1,64 @@
+>> django-admin startproject income_expenses_api
+>> python manage.py runserver
+
+-> install djangorestframework
+>> pip install djangorestframework
+
+-> create app authentication
+>> python manage.py startapp authentication
+
+-> register apps in settings.py
+    INSTALLED_APPS = [
+        ...
+        'rest_framework',
+        'authentication'
+    ]
+
+-> change database
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'django_income_expenses_api',
+            'USER': 'root',
+            'PASSWORD': '',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
+
+-> create custom user model in authentication > models.py and make django to understand to use that model
+-> settings.py
+    AUTH_USER_MODEL = 'authentication.user'
+-> create serializer.py, views.py, urls.py and hook authentication > urls.py to main project urls.py
+
+-> now run migrations
+>> python manage.py makemigrations
+>> python manage.py migrate
+
+
+-> Install JWT
+>> pip install djangorestframework-simplejwt
+
+-> Then, your django project must be configured to use the library. In settings.py,
+    add rest_framework_simplejwt.authentication.JWTAuthentication to the list of authentication classes:
+
+    REST_FRAMEWORK = {
+        'NON_FIELD_ERROE_KEY': 'error',
+        'DEFAULT_AUTHENTICATION_CLASSES': (
+            'rest_framework_simplejwt.authentication.JWTAuthentication',
+        )
+    }
+
+-> Setup email sending option (settings.py):-
+    EMAIL_USE_TLS = True
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
+-> update authentication > views.py
+-> create authentication > utils.py
+
+
+
+

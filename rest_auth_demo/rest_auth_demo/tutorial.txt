@@ -1,0 +1,57 @@
+## Django Rest Framework Project Setup (https://studygyaan.com/django/django-rest-framework-tutorial-register-login-logout)
+#  We will install following libraries for django, django rest framework and django rest knox.
+
+>> django-admin startproject rest_auth_demo
+
+>> pip install djangorestframework
+>> pip install django-rest-knox
+
+#  After installing the above library. Add rest_framework and knox to your INSTALLED_APPS,
+   remove rest_framework.authtoken if you were using it.
+
+-> INSTALLED_APPS = [
+    ...
+    'rest_framework',
+    'knox',
+]
+
+## Make knox’s TokenAuthentication your default authentification class for django-rest-framework,
+   in settings.py file:
+
+-> REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'knox.auth.TokenAuthentication',
+    ]
+}
+
+#  Note – The above REST_FRAMEWORK allows both session based and token based authentication.
+
+# install MySQL client
+>> pip install mysqlclient
+
+# Create migrations
+>> python manage.py makemigrations
+>> python manage.py migrate
+
+---------------------------------------------------------------------------------------------------
+# hit from postman (form data)
+    "username": "frs",
+    "email"   : "frs@gmail.com",
+    "password": "123"
+
+# Return will be like:
+{
+    "user": {
+        "id": 1,
+        "username": "frs",
+        "email": "frs@gmail.com"
+    },
+    "token": "d8850559fe9351be79862c8c401c52a0df6b0a6445cc7b24f9d1eaa084a9083e"
+}
+---------------------------------------------------------------------------------------------------
+
+
+
+

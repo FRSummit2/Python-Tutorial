@@ -1,0 +1,65 @@
+install django
+>> python -m django --version
+
+check django version
+>>python -c "import django; print(django.get_version())"
+
+
+
+create django project by this command in terminal in specific folder
+>> django-admin startproject api_demo
+
+run project by this command in terminal
+>> python manage.py runserver
+>> python manage.py runserver 127.0.0.1:8001
+
+install djangorestframework
+>> pip install djangorestframework
+
+In our main “api_demo” folder, the same file manage.py, we create employee folder
+>> python manage.py startapp employee
+
+# Go to api_demo > settings.py file and register 'rest_framework', 'employee' inside  INSTALLED_APPS
+# Create employee model inside employee > models.py
+# Update employee > admin.py
+
+# install MySQL client
+>> pip install mysqlclient
+
+# Create migrations
+>> python manage.py makemigrations
+>> python manage.py migrate
+
+# Create superuser
+>> python manage.py createsuperuser
+username: frsummit
+email   : frsummit1@gmail.com
+password: summit1
+
+
+# Create employee > serializer.py file and update class
+
+# Update view file as controller
+
+
+
+
+
+
+
+In our main “myproject” folder, the same folder then manage.py, we create myapp folder
+>> python manage.py startapp myapp
+
+
+Before launching your server, to access your Admin Interface, you need to initiate the database
+>> python manage.py migrate
+
+
+syncdb will create necessary tables or collections depending on your db type, necessary for the admin interface to run. Even if you don't have a superuser, you will be prompted to create one.
+If you already have a superuser or have forgotten it, you can always create one using the following code
+>> python manage.py createsuperuser
+
+username: frsummit
+email: frsummit1@gmail.com
+password: 123456
+
